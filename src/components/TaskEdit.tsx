@@ -5,12 +5,9 @@ interface TaskEditProps {
     task: Task;
     editTask: (id: number, newText: string) => void;
     setIsEditing: (isEditing: boolean) => void;
-    taskItemStyle: React.CSSProperties; 
-    taskTextStyle: React.CSSProperties;
-    buttonStyle: React.CSSProperties;
 }
 
-const TaskEdit = ({ task, editTask, setIsEditing, taskItemStyle, taskTextStyle, buttonStyle }: TaskEditProps) => {
+const TaskEdit = ({ task, editTask, setIsEditing }: TaskEditProps) => {
     const [newText, setNewText] = useState(task.text);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -21,15 +18,15 @@ const TaskEdit = ({ task, editTask, setIsEditing, taskItemStyle, taskTextStyle, 
     };
 
     return (
-        <form onSubmit={handleSubmit} style={taskItemStyle}>
+        <form onSubmit={handleSubmit} className="task-edit-form">
             <input
                 type="text"
                 value={newText}
                 onChange={(e) => setNewText(e.target.value)}
-                style={taskTextStyle}
+                className="task-edit-input"
             />
-            <button type="submit" style={buttonStyle}>Spara</button> 
-            <button type="button" onClick={() => setIsEditing(false)} style={buttonStyle}>
+            <button type="submit" className="task-edit-button">Spara</button> 
+            <button type="button" onClick={() => setIsEditing(false)} className="task-edit-button">
                 Avbryt
             </button>
         </form>

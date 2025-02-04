@@ -15,35 +15,16 @@ const TaskForm = ({ addTask }: TaskFormProps) => {
     setText("");
   };
 
-  const formStyle = {
-    backgroundColor: "#ffffcc",
-    border: "1px solid #ccc",
-    boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.2)",
-    borderRadius: "8px",
-    display: "flex", 
-  };
-
-  const inputStyle = {
-    flexGrow: 1,
-    padding: "4px",
-    border: "1px solid #ccc",
-    fontSize: "18px", 
-  };
-
-  const buttonStyle = {
-    backgroundColor: "transparent", 
-  };
-
   return (
-    <form onSubmit={handleSubmit} style={formStyle}>
+    <form onSubmit={handleSubmit} className="task-form">
       <input
         type="text"
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="What's next?..."
-        style={inputStyle}
+        placeholder="What's next?... "
+        className="task-input"
       />
-      <button type="submit" style={buttonStyle}>
+      <button type="submit" className="task-button task-button-circle">
         <CirclePlus size={30} />
       </button>
     </form>
